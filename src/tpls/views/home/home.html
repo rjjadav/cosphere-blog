@@ -1,0 +1,56 @@
+<div layout="column" id="home">
+<div layout="row" layout-align="center center" flex>
+	<div flex="80" layout="row" layout-sm="column" layout-xs="column">
+		<div flex="50" flex-sm="100" flex-xs="100" layout-margin>
+		<md-card ng-repeat="blog in home.blogContents" ng-if="$even">
+			<md-card-header>
+
+				<span>Posted By : <i>Admin</i></span>
+				<span flex></span>
+				<span>{{blog.blogDate | date:'MMMM dd, yyyy'}}</span>
+
+			</md-card-header>
+			<img ng-src="{{blog.imageSrc}}" ng-if="blog.imageSrc">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline">{{blog.blogTitle}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<p>
+					{{blog.content.substring(0,250)}}...
+				</p>
+			</md-card-content>
+			<md-card-actions>
+				<md-button class="md-primary" ui-sref="app.blog({blogId:blog.id})">Read More</md-button>
+			</md-card-actions>
+		</md-card>
+		</div>
+		<div flex="50" flex-sm="100" flex-xs="100" layout-margin>
+		<md-card ng-repeat="blog in home.blogContents" ng-if="$odd">
+			<md-card-header>
+
+				<span>Posted By : <i>Admin</i></span>
+				<span flex></span>
+				<span>{{blog.blogDate | date:'MMMM dd, yyyy'}}</span>
+
+			</md-card-header>
+			<img ng-src="{{blog.imageSrc}}" ng-if="blog.imageSrc">
+			<md-card-title>
+				<md-card-title-text>
+					<span class="md-headline">{{blog.blogTitle}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<p>
+					{{blog.content.substring(0,250)}}...
+				</p>
+			</md-card-content>
+			<md-card-actions>
+				<md-button class="md-primary" ui-sref="app.blog({blogId:blog.id})">Read More</md-button>
+			</md-card-actions>
+		</md-card>
+		</div>
+	</div>
+</div>
+</div>

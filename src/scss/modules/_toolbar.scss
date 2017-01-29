@@ -1,0 +1,34 @@
+#toolbar{
+
+	&.toolbar-header {
+		background:#435a77;
+		height:240px;
+		/*transition: 0.5s;*/
+		z-index:10;
+		/*position : fixed;
+		top: 0px;
+		left: 0px;*/
+
+		a{
+			span{
+				color: #fff !important; 
+			}
+		}
+	}
+
+	.navbar-image{
+		height: 240px;
+		background-repeat: no-repeat;
+		width: 100%;
+		background: rgba(0,0,0,0.4);
+
+		.logo{
+			height: 60px;
+		}
+	}
+
+	.md-toolbar-tools{
+		position: absolute;
+		bottom: 0px;
+	}
+}

@@ -1,0 +1,106 @@
+<div layout="row" layout-align="center center" id="blog">
+	<div flex="75" flex-sm="100" flex-xs="100" layout="row" layout-sm="column" layout-xs="column">
+		<div flex="65" flex-sm="100" flex-xs="100" class="blog-post" layout-margin layout="column">
+			<div layout="column" flex class="md-whiteframe-2dp mt-50 panel" >
+				<img ng-src="{{blog.selectedBlog.contentImage}}" ng-if="blog.selectedBlog.contentImage">
+				<div class="blog-post-data" layout="row" layout-padding>
+					<div flex layout="row" layout-wrap>
+						<span class="label label-light label-warning m-5" ng-repeat="tag in blog.selectedBlog.tags">
+							{{tag}}
+						</span>
+					</div>
+					
+					<div>
+						Posted By : <i>Admin</i> <br/>
+						{{blog.selectedBlog.blogDate | date:'MMMM dd, yyyy'}}
+					</div>
+				</div>
+				<div class="blog-post-content">
+					<h2 class="blog-post-title">
+						{{blog.selectedBlog.blogTitle}}
+					</h2>
+					<ng-bind-html ng-bind-html="blog.selectedBlog.content">
+					</ng-bind-html>
+				</div>
+			</div>
+
+			<div layout="column" class="panel p-15">
+				<h4>Comments</h4>
+				<md-input-container>
+					<label>Comment</label>
+					<textarea rows="3" ng-model="blog.comment.comment" required></textarea>
+				</md-input-container>
+				<div layout="row" flex>
+					<md-input-container flex>
+						<label>Name</label>
+						<input type="text" name="name" ng-model="blog.comment.name" required />
+					</md-input-container>
+
+					<md-input-container flex>
+						<label>Email</label>
+						<input type="email" name="email" ng-model="blog.comment.email" required />
+					</md-input-container>
+
+					<md-input-container flex>
+						<label>Website</label>
+						<input type="text" name="name" ng-model="blog.comment.website" />
+					</md-input-container>
+				</div>
+				<md-button class="md-warn md-raised" flex>Post comment</md-button>
+				<!-- <div layout="row">
+					<md-input-container>
+						<label>Email</label>
+						<input type="email" name="email" ng-model="blog.comment.email" required />
+					</md-input-container>
+				</div> -->
+				
+				<h4 class="mt-30">Recent Comments</h4>
+				<div>No Comments Yet</div>
+			</div>
+		</div>
+
+		<div flex="35" flex-sm="100" flex-xs="100" class="blog-sidebar">
+			<div layout="row" flex-offset-gt-sm="30" flex >
+				<div layout="column" flex class="mt-50" layout-margin>
+					<!-- <md-input-container md-no-float>
+						<input type="text" name="search" ng-model="blog.search" placeholder="Search">
+					</md-input-container> -->
+
+					
+					<div class="panel md-whiteframe-4dp" layout="column" layout-padding>
+						<h4>Recent Posts</h4>
+						<div ng-repeat="b in blog.blogContents" ui-sref="app.blog({blogId:b.id})" ng-if="blog.selectedBlog.id != b.id" style="cursor: pointer;">
+							{{b.blogTitle}}
+							<md-divider></md-divider>
+						</div>
+					</div>
+
+					<!-- <div class="panel p-15" layout="column">
+						<h4>We are On</h4>
+						<a href="https://twitter.com/cosphereindia">Twitter</a>
+						<a href="https://www.facebook.com/CoSphere/">Facebook</a>
+						<a href="https://www.linkedin.com/company/cosphere">LinkedIn</a>
+					</div> -->
+
+					<div class="panel p-15" layout="column">
+						<h4>Share this blog On</h4>
+						<a href="https://twitter.com/cosphereindia">Twitter</a>
+						<!-- <a href="https://www.facebook.com/CoSphere/">Facebook</a> -->
+						<a href="javascript:void(0)" ng-click="blog.shareOnFacebook(blog.selectedBlog)">Facebook</a>
+						<a href="https://www.linkedin.com/company/cosphere">LinkedIn</a>
+					</div>
+
+					<div class="panel p-15" layout="column">
+						<h4>Recent Comments</h4>
+						<div>No Comments Yet</div>
+					</div>					
+
+					<div class="panel p-15" layout="column">
+						<h4>Categories</h4>
+						<a ui-sref="app.home">Uncategorized</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

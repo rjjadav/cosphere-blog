@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Project Title</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="blog">
+
+    <link rel="shortcut icon" href="favicon.ico?ver=1.0.0">
+
+    <!-- set default share info -->
+    <meta property="og:url" content="">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="css/vendor/vendor.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="scripts/modernizr.js"></script>
+</head>
+
+<body>
+    <!-- begin: incompatible browser page -->
+    <div class="incompatible-browser">Incompatible browser</div>
+    <!-- end: incompatible browser page -->
+    <!-- begin: loader -->
+    <div class="loader"></div>
+    <!-- end: loader -->
+    <!-- begin: main app -->
+    <!-- <header class="ng-cloak" ng-include=" 'tpls/partials/header.html' "></header>
+    <div class="container view-change-animate ng-cloak" ui-view></div>
+    <footer class="ng-cloak" ng-include=" 'tpls/partials/footer.html' "></footer> -->
+
+    <div layout="column" class="full-height" ng-controller="RootController as vm">
+        <div layout="row" ng-clock class="full-height">
+            <div flex ui-view="main" class="full-height">
+                <!-- <md-toolbar id="toolbar" class="header nobg" ui-view="toolbar"></md-toolbar>
+
+                <md-content flex id="content" ui-view="content" flex></md-content>
+
+                <md-sidenav id="quick-panel" class="md-sidenav-right md-whiteframe-4dp" md-component-id="quick-panel" ui-view="quickPanel" ng-clock></md-sidenav> -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- end: main app -->
+    <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
